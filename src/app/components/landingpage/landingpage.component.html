@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<h2>
+    Upload your CSV File
+</h2>
+
+<!-- set the value attribute to null on click, so that the same file can be selected again -->
+
+<div class="row">
+
+    <div class="card__file">
+        <input  type="file" class='card__file--input' placeholder="choose to add file" name="file" id="file"
+        onclick="value = null"  (change)="onFileSelected($event.target.files)">
+        <label for="file" id='filename'>{{selectedFile ? selectedFile.name : "choose a file"}}</label>
+    </div>
+    <div class="upload__file">
+        <button type="button" class="btn btn-success" (click)="onUpload()">Upload File</button>
+    </div>
+
+</div>
+
+<h2 class = "row wrapper-heading" *ngIf = "validEmails.length > 0" >Emails :-</h2>
+
+
+<div class="wrapper row" *ngIf = "validEmails.length>0" >
+    <div class="list-wrapper">
+        <div *ngFor = "let mail of validEmails" class="mail-wrapper">
+            <div class="mail-body">
+                <h4 class="mail-id">{{mail}}</h4>
+                <button (click) = "removeMail(mail)" class="removebtn "> x </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class = "row wrapper-heading" *ngIf = "invalidEmails.length > 0" > Incorrect Entries :-</h2>
+
+<div class="wrapper row" *ngIf = "invalidEmails.length>0" >
+    <div class="list-wrapper">
+        <div *ngFor = "let mail of invalidEmails" class="mail-wrapper">
+            <div class="mail-body mail-body__error">
+                <h4 class="mail-id">{{mail}}</h4>
+                <button (click) = "removeMail(mail)" class="removebtn "> x </button>
+            </div>
+        </div>
+    </div>
+</div>
+

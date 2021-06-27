@@ -1,0 +1,32 @@
+nav
+{
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 1.3rem 2rem;
+    height: 5rem;
+    box-shadow: 0 .2rem 0.5rem #999;
+    background-color: #3f51b5;
+}
+ul
+{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 0rem;
+}
+
+ul>li
+{
+    padding: 0 3rem;
+}
+ul>li>a
+{
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 500;
+    font-family: 'Poppins';
+
+}

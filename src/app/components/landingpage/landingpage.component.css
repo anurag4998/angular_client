@@ -1,0 +1,120 @@
+h2{
+    text-align: center;
+    margin:50px;
+    font-size: 2.5rem;
+    font-family: 'Poppins';
+
+}
+.row{
+    display: flex;
+    max-width: 45%;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.btn{
+    padding: 1.35rem;
+    font-size: 18px;
+    color: #fff;
+    background-color: #5cb85c;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+   
+  .card__file--input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+   
+  .card__file--input + label {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background-color: blue;
+    display: inline-block;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: .2rem;
+    font-family: 'Poppins';
+
+  }
+  .card__file--input:focus + label,
+  .card__file--input + label:hover {
+    background-color: blueviolet;
+  }
+  .wrapper-heading
+  {
+      margin-top: 3rem;
+      font-size: 1.8rem;
+  }
+  .wrapper
+  {
+      display: flex;
+      justify-content: flex-start;
+      height: fit-content;
+      border: 0.2rem solid #f2f2f2;
+      flex-direction: column;
+      width: 45%;
+      margin: 0 auto;
+      padding: 0.2rem 0.4rem;
+      margin-top: 1rem;
+  }
+
+  .list-wrapper
+  {
+      display: flex;
+      flex-wrap: wrap;
+
+  }
+  .mail-wrapper
+  {
+      width: fit-content;
+      margin: 0.3rem;
+     
+  }
+
+  .mail-body
+  {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.1rem 0.4rem;
+        background-color: #f2f2f2;
+        border-radius: 1.5rem;
+        color: #0062af;
+        
+  }
+  .mail-body__error
+  {
+    background-color: #ea9d9d;
+  }
+ .mail-body__error > h4 
+ {
+   color: #182937;
+ }
+ 
+  .mail-body__error > button 
+  {
+      color: #182937;
+  }
+  .mail-id 
+  {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-left: 0.4rem;
+  }
+  .removebtn 
+  {
+    padding: 0.4rem 0.8rem; 
+    border: none;
+    background-color: transparent;
+    font-size: 1.4rem;
+    color: #0062af;
+    cursor: pointer;
+  }

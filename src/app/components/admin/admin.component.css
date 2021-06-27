@@ -1,0 +1,41 @@
+.table__data > div
+{
+    font-size: 1.2rem;
+
+}
+
+.table__row__cell--actionbtn
+{
+    outline: none;
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 0.3rem;
+    padding: 0.8rem 1rem;
+    width: 15rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    box-shadow: 0.1rem 0.1rem 0 #c1c1c1;
+}
+
+.table__row__cell--capitalize
+{
+    text-transform: capitalize;
+}
+
+.table__row--addbtn
+{
+
+    margin-top : 5rem;
+
+}
+
+.table__row  > .table__row__cell--narrow
+{
+    width: 18%;
+}
+
+.table__row  > .table__row__cell--wide
+{
+    width: 28%;
+}

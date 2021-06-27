@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class= "table">
+    <h2 class="table__heading">Users Table</h2>
+    <div class="table__row table__row--header">
+        <div class="table__row__cell table__row__cell--narrow">First Name</div>
+        <div class="table__row__cell table__row__cell--narrow">Last Name</div>
+        <div class="table__row__cell table__row__cell--wide">Email- ID</div>
+        <div class="table__row__cell table__row__cell--narrow">Brand name</div>
+        <div class="table__row__cell table__row__cell--narrow">Actions</div>
+    </div>
+
+    <div class="table__row table__data" *ngFor = "let user of userlist">
+        <div class="table__row__cell table__row__cell--smalltxt table__row__cell--capitalize table__row__cell--narrow" >
+            {{user.firstname}}
+        </div>
+        <div class="table__row__cell table__row__cell--smalltxt table__row__cell--capitalize table__row__cell--narrow" >
+            {{user.lastname}}
+        </div>
+        <div class="table__row__cell table__row__cell--smalltxt table__row__cell--wide" >
+            {{user.email}}
+        </div>
+        <div class="table__row__cell table__row__cell--smalltxt table__row__cell--narrow" >
+            {{user.brand}}
+        </div>
+        <div class="table__row__cell table__row__cell--smalltxt table__row__cell--narrow">
+            <button class = "table__row__cell--actionbtn" (click) = "edituser(user)" >Edit</button>
+        </div>
+    </div>
+
+    <div class="table__row table__row--addbtn">
+        <button class = "table__row__cell--actionbtn" (click) = "createuser()" >Create User</button>
+    </div>
+</div>

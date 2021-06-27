@@ -24,7 +24,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/app/styles/external/bootstrap.min.css",
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -87,7 +90,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "src/app/styles/external/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           }
