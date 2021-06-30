@@ -32,7 +32,6 @@ export class AdduserComponent implements OnInit {
       a.lastname = a.lastname.toLowerCase();
       a.email = a.email.toLowerCase();
       this.service.AddData(a);
-      console.log(a)
       this.toastr.success("User Created", 'Done', {
         timeOut: 2000
       });

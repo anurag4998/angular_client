@@ -21,6 +21,15 @@ th
     justify-content: space-between;
     align-items: center;
 }
+
+.userform
+{
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+    padding: 1.5rem 2rem;
+    position: relative;
+}
+
 th.mat-header-cell, td.mat-cell, td.mat-footer-cell
 {
     width: 15%;

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../models/users'
 import { UsersService } from '../../services/users.service'
 import { Router } from '@angular/router';
@@ -13,54 +13,75 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class MattableComponent implements OnInit {
 
-  constructor(private service: UsersService, private router: Router) { }
+  constructor(private service: UsersService, private router: Router, private cdr: ChangeDetectorRef) {
+    
+   }
   displayedColumns: string[] = ['First Name', 'Last Name', 'Email ID', 'Brand', "Actions"];
-  public userlist: User[] = [];
-  public showForm: boolean = false;
+  public userList: User[] = [];
+  public showAddUserForm: boolean = false;
   public userToEdit: User;
-  public isEditable = false;
-
+  public showEditUserForm: boolean = false;
+  public displayList: User[] = [];
+  public delete:boolean = false;
   @ViewChild(MatPaginator) paginator: MatPaginator
 
   ngOnInit(): void {
-    this.userlist = this.service.userData;
+    this.userList = this.service.userData;
   }
   
-  
-
+  ngAfterViewInit()
+  {
+    this.displayList = this.userList.slice(this.paginator.pageIndex* this.paginator.pageSize, this.paginator.pageSize + this.paginator.pageIndex* this.paginator.pageSize );
+    //console.log(this.displayList)
+    this.cdr.detectChanges();
+  }
+ 
   addUser(newArray) {
-    this.showForm = false;
-    this.userlist = [...newArray];
+    this.showAddUserForm = false;
+    //this.userlist = [...newArray];
+    this.displayList =  this.userList.slice(this.paginator.pageIndex* this.paginator.pageSize, this.paginator.pageSize + this.paginator.pageIndex* this.paginator.pageSize );
   }
 
   updateUser(newArray) {
-    this.isEditable = false;
-    this.userlist = [...newArray];
+    this.showEditUserForm = false;
+    //this.userlist = [...newArray];
+    this.displayList =  this.userList.slice(this.paginator.pageIndex* this.paginator.pageSize, this.paginator.pageSize + this.paginator.pageIndex* this.paginator.pageSize );
+
   }
 
   deleteUser(_email: string) {
-    let data = this.service.fetchData();
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].email === _email) {
-        data.splice(i, 1);
-      }
-    }
-    this.userlist = [...data]
-    this.service.UpdateData(data);
+    this.delete = true;
+    setTimeout(() => {
+
+    },5000);
+
+    // let data = this.service.fetchData();
+    // for (let i = 0; i < data.length; i++) {
+    //   if (data[i].email === _email) {
+    //     data.splice(i, 1);
+    //   }
+    // }
+    // this.userList = data;
+    // this.service.UpdateData(data);
+    // this.displayList =  this.userList.slice(this.paginator.pageIndex* this.paginator.pageSize, this.paginator.pageSize + this.paginator.pageIndex* this.paginator.pageSize );
   }
 
-  edituser(user: User) {
+  editUser(user: User) {
     this.service.UpdateUser(user);
-    this.isEditable = true;
+    this.showEditUserForm = true;
     this.userToEdit = user;
   }
 
-  addNewUser() {
-    this.showForm = !this.showForm;
+  handleEditUser()
+  {
+      this.showEditUserForm = false;
+  }
+  handleAddNewUser() {
+    this.showAddUserForm = !this.showAddUserForm;
   }
 
-  handlePage(event)
+  handlePagination(event)
   {
-    console.log(event)
+    this.displayList = this.userList.slice(event.pageIndex* event.pageSize, event.pageSize + event.pageIndex* event.pageSize );
   }
 }

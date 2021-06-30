@@ -21,7 +21,7 @@ export class UsersService {
 
   public AddData( user:User)
   {
-      this.userData.push(user);
+      this.userData.unshift(user);
   }
 
   public UpdateUser(user:User)
